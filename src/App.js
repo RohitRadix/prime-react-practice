@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
+import {  Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Counter from './components/Counter';
+import Greet from './components/Greet';
+import NavBar from './components/NavBar';
+import TableDemo from './components/TableDemo';
 
-function App() {
+
+
+let App= ()=> {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    
+      <NavBar/>
+      <Routes>
+        <Route path='/' element={<Navigate to={'/counter'}/>}/>
+        <Route path='/counter' element={<Counter/>}/>
+        <Route path='/greet' element={<Greet/>}/>
+        <Route path='/table' element={<TableDemo/>}/>
+      </Routes>
+    </>
+   
   );
 }
 
